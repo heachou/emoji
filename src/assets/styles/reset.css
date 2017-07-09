@@ -1,0 +1,293 @@
+blockquote,
+body,
+button,
+caption,
+dd,
+div,
+dl,
+dt,
+fieldset,
+figure,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+html,
+input,
+legend,
+li,
+menu,
+ol,
+p,
+pre,
+table,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+address,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+caption,
+th {
+    font-weight: 400;
+    text-align: left;
+}
+
+abbr,
+body,
+fieldset,
+html,
+iframe,
+img {
+    border: 0;
+}
+
+address,
+cite,
+dfn,
+em,
+i,
+var {
+    font-style: normal;
+}
+
+[hidefocus],
+summary {
+    outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+    font-size: 100%;
+}
+
+sub,
+sup {
+    font-size: 83%;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: inherit;
+}
+
+q:after,
+q:before {
+    content: none;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+label,
+summary {
+    cursor: default;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+b,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+    font-weight: 700;
+}
+
+a,
+a:hover,
+del,
+ins,
+s,
+u {
+    text-decoration: none;
+}
+
+body,
+button,
+input,
+keygen,
+legend,
+select,
+textarea {
+    font: 12px/1.14 arial, \5b8b\4f53;
+    color: #333;
+    outline: 0;
+}
+
+a,
+a:hover {
+    color: #333;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+body,
+button,
+html,
+input,
+select,
+table,
+td,
+textarea,
+th {
+    font-family: 'Microsoft Yahei';
+}
+
+body {
+    font-size: 12px;
+    position: relative;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+.fll,
+.pull-left {
+    float: left;
+}
+
+.flr,
+.pull-right {
+    float: right;
+}
+
+.clearfix:after,
+.clearfix:before {
+    display: table;
+    content: '';
+}
+
+.clearfix.clearDib:after,
+.clearfix.clearDib:before {
+    display: inline-block!important;
+    content: '';
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.pore {
+    position: relative;
+}
+
+.poab {
+    position: absolute;
+}
+
+.pofix {
+    position: fixed;
+}
+
+.poab100 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+img,
+img:focus {
+    border: 0;
+    outline: 0;
+    outline-style: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a,
+a:focus {
+    cursor: pointer;
+    text-decoration: none;
+    border: 0;
+    outline: 0;
+    outline-style: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.twoLine {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.fourLine {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+html {
+    -ms-touch-action: none;
+}
