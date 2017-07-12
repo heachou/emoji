@@ -23,7 +23,6 @@ export default {
   },
   watch: {
     inputText (to, from) {
-      console.info(to, from)
       if (to !== from) {
         this._filterTagsData()
       }

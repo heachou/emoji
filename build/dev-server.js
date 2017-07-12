@@ -24,6 +24,8 @@ app.use(cookieParser())
 app.get('/getHot',router.getHot);
 // 得到标签
 app.get('/getTag',router.getTag);
+// 下载表情
+app.get('/downloadEmoji',router.downloadEmoji)
 
 
 // default port where dev server listens for incoming traffic

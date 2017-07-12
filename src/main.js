@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
+import store from './store/index'
 import infiniteScroll from 'vue-infinite-scroll'
 import VueLazyload from 'vue-lazyload'
 import './assets/styles/reset.css'
@@ -22,6 +23,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

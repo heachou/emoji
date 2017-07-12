@@ -1,5 +1,7 @@
 const cheerio = require('cheerio')
 const superagent = require('superagent')
+var http = require('http')
+var fs = require("fs")
 const requstConfig = {
 	"Accept": 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 
 	"Accept-Encoding": 'gzip, deflate, sdch',
@@ -7,8 +9,6 @@ const requstConfig = {
 	"Connection":"keep-alive",
 	"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.81 Safari/537.36"
 }
-
-
 
 exports.getHot = (req,res) => {
 	var page = req.query.page;
@@ -36,6 +36,26 @@ exports.getTag = (req,res) => {
 	.set(requstConfig)
 }
 
+exports.downloadEmoji = (req,res) => {
+	var imgSrc = req.query.imgSrc;
+	res.json({result:11})
+	// http.get(imgSrc, function(res){
+	    /*var imgData = "";
+	    res.setEncoding("binary"); //一定要设置response的编码为binary否则会下载下来的图片打不开
+	    res.on("data", function(chunk){
+	        imgData+=chunk;
+	    });*/
+
+	   /* res.on("end", function(){
+	        fs.writeFile("../temp/logonew.png", imgData, "binary", function(err){
+	            if(err){
+	                console.log("down fail");
+	            }
+	            console.log("down success");
+	        });
+	    });*/
+	// });
+}
 function _getHotData(rawHtml){
 	var hotImgArr = [];
 	const $ = cheerio.load(rawHtml);

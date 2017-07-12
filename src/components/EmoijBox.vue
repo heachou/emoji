@@ -2,7 +2,7 @@
 	<div>
   	<ul v-show="emojiData.length"  v-infinite-scroll="loadMore" infinite-scroll-disabled="busy" infinite-scroll-distance="30">
       <li v-for="(item,index) in emojiData">
-        <a :href="'/biaoqinng/'+item.imgId">
+        <a :href="'/biaoqinng/'+item.imgId" @click.prevent.stop="showBigImg(index)">
           <img :alt="item.imgDesc" v-lazy="item.imgSrc">
         </a>
       </li>
@@ -14,6 +14,7 @@
 <script type="text/javascript">
 import NoData from './Nodata'
 import Loading from '../components/Loading'
+import {mapActions} from 'vuex'
 export default {
   name: 'EmoijBox',
   props: [],
@@ -25,6 +26,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['showBigImg', 'concatImgArr']),
     loadMore: function () {
       this.busy = true
       this.getHotData(this.nextPage)
@@ -33,6 +35,7 @@ export default {
       var _this = this
       this.$http.get(`/getHot?page=${page}`).then((response) => {
         _this.emojiData = _this.emojiData.concat(response.data.result)
+        _this.concatImgArr(response.data.result)
         _this.busy = false
         _this.nextPage += 1
       }, (reject) => {

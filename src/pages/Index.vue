@@ -10,6 +10,7 @@
 		  <tips v-show="tips.isShow" :title="tips.title" show-icon :type="tips.type" @close="closeTips"></tips>
     </div>
     <to-top :ratio="2"></to-top>
+    <show-big-img v-if="isShowBigImg"></show-big-img>
 	</div>
 </template>
 <script type="text/javascript">
@@ -18,6 +19,9 @@ import VHeader from '../components/Header'
 import Tips from '../components/Tips'
 import EmojiBox from '../components/EmoijBox'
 import ToTop from '../components/ToTop'
+import ShowBigImg from '../components/ShowBigImg'
+import {mapActions, mapGetters} from 'vuex'
+
 export default {
   name: 'index',
   data () {
@@ -28,6 +32,10 @@ export default {
         type: 'info'
       }
     }
+  },
+  computed: {
+    ...mapActions(['showBigImg']),
+    ...mapGetters(['isShowBigImg'])
   },
   methods: {
     search (value) {
@@ -51,11 +59,12 @@ export default {
     VHeader,
     EmojiBox,
     Tips,
-    ToTop
+    ToTop,
+    ShowBigImg
   }
 }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .divide{
   margin-top: 15px;
   background: #d2d2d2;
