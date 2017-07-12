@@ -27,7 +27,7 @@ export default new Router({
       component: Me
     },
     {
-      path: '/search',
+      path: '/search/:type/:nowpage',
       name: 'search',
       component: Search
     },

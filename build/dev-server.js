@@ -11,6 +11,20 @@ var express = require('express')
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
 var webpackConfig = require('./webpack.dev.conf')
+var app = express()
+
+var bodyParser = require('body-parser')
+var cookieParser = require('cookie-parser')
+var router = require('./routers/router.js')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use(cookieParser())
+
+// 得到当前热搜
+app.get('/getHot',router.getHot);
+// 得到标签
+app.get('/getTag',router.getTag);
+
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -19,8 +33,6 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable
-
-var app = express()
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

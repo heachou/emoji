@@ -1,12 +1,14 @@
 <template>
 	<header class="clearfix">
-		<span class="fll back" @click="returnBack">
+		<span class="fll back" @click="returnBack" v-show="showBack">
       <i class="icon iconfont icon-back"></i>
     </span>
     <div class="searchWrap" v-show="showSearch">
-      <input type="text" v-model="searchText" @keyup.stop.prevent.13="emitSearch">
+      <input type="text" placeholder="doge" v-focus v-model="searchText" @keyup.stop.prevent.13="emitSearch">
     </div>
-    <h1 class="title" v-show="!showSearch">111</h1>
+    <div class="searchWrap" v-show="!showSearch">
+      <input type="text" placeholder="天线宝宝" v-model="searchText" @keyup.stop.prevent="emitSearch">
+    </div>
 	</header>
 </template>
 <script type="text/javascript">
@@ -17,6 +19,10 @@ export default {
       type: Function
     },
     showSearch: {
+      type: Boolean,
+      default: true
+    },
+    showBack: {
       type: Boolean,
       default: true
     }
@@ -33,6 +39,13 @@ export default {
     emitSearch () {
       let searchText = this.searchText
       this.$emit('search', searchText)
+    }
+  },
+  directives: {
+    focus: {
+      inserted: function (el) {
+        el.focus()
+      }
     }
   }
 }
@@ -54,17 +67,29 @@ header{
   margin: auto;
   padding-top: 10px;
   box-sizing: border-box;
+  position: relative;
 }
 .searchWrap input{
   border:none;
   outline: none;
-  border-bottom: 1px solid #e2e2e2;
+  position: relative;
   width: 100%;
   height: 24px;
   line-height: 24px;
   font-size: 14px;
+  display: inline-block;
 }
-
+.searchWrap:before{
+  position: absolute;
+  display: inline-block;
+  content: '';
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+  background: #d2d2d2;
+}
 
 
 

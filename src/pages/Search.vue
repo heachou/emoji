@@ -11,6 +11,10 @@ export default {
     return {
     }
   },
+  created () {
+    console.info(this.$route.params.type)
+    console.info(this.$route.params.nowpage)
+  },
   methods: {
 
   }

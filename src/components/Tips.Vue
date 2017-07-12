@@ -56,12 +56,17 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
-
+.tipsWrap{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 100px;
+}
 .tipsItem{
   height: 36px;
   color: #fff;
   border-radius: 4px;
-  width: 96%;
+  width: 90%;
   padding: 10px 10px 10px 15px;
   padding-left: 10px;
   box-sizing: border-box;

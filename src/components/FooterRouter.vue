@@ -33,6 +33,8 @@ footer{
 	width: 100%;
 	height: 46px;
 	bottom: 0;
+	z-index: 10;
+	background: #fff;
 }
 ul{
 	display: flex;
