@@ -24,8 +24,12 @@ app.use(cookieParser())
 app.get('/getHot',router.getHot);
 // 得到标签
 app.get('/getTag',router.getTag);
-// 下载表情
-app.get('/downloadEmoji',router.downloadEmoji)
+// 收藏表情包
+app.post('/addFavorite',router.addFavorite)
+// 取消收藏表情
+app.post('/cancelFavorite',router.cancelFavorite)
+// 通过类型筛选表情
+app.get('/getSearchByType',router.getSearchByType)
 
 
 // default port where dev server listens for incoming traffic

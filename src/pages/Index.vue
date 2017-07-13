@@ -46,7 +46,7 @@ export default {
     },
     _search (value) {
       // 定向到搜索页面,默认是第一页
-      this.$router.push(`/search/${value}/1`)
+      this.$router.push(`/search/${value}`)
     },
     _showTips (title, type) {
       this.tips.isShow = true

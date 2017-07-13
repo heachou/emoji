@@ -8,7 +8,7 @@
 				<router-link to="/types">标签</router-link>
 			</li>
 			<li>
-				<router-link to="/me">本大王</router-link>
+				<router-link to="/me">我</router-link>
 			</li>
 		</ul>
 	</footer>

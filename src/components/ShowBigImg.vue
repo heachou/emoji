@@ -4,11 +4,12 @@
 			<div class="imgBoxTop">
 				<h2 class="ellipsis">{{emojiDataArr[index].imgDesc}}</h2>
 				<div class="tool clearfix">
-					<span class="flr" @click="downloadEmoji(emojiDataArr[index].imgSrc)">
-						<i class="icon iconfont icon-icondownload"></i>
+					<span class="flr">
+						<a :href="emojiDataArr[index].imgSrc" download="w3logo" class="icon iconfont icon-icondownload"></a>
 					</span>
 					<span class="flr">
-						<i class="icon iconfont icon-favorites"></i>
+            <i class="icon iconfont icon-favorite" v-show="!isFavorite" @click="favorite($event,emojiDataArr[index].imgId)"></i>
+            <i class="icon iconfont icon-favoritesfilling" v-show="isFavorite" @click="cancelfavorite($event,emojiDataArr[index].imgId)"></i>
 					</span>
 				</div>
 				<div class="imgBoxWrap">
@@ -38,6 +39,7 @@ export default {
   props: [],
   data () {
     return {
+      isFavorite: false
     }
   },
   computed: {
@@ -45,8 +47,21 @@ export default {
   },
   methods: {
     ...mapActions(['closeBigImg', 'showPrev', 'showNext']),
-    downloadEmoji (imgSrc) {
-      this.$http.get(`/downloadEmoji?emojiId=${imgSrc}`).then((response) => {
+    favorite (event, imgId) {
+      var _this = this
+      this.$http.post('/addFavorite', {imgId: imgId}).then((response) => {
+        _this.isFavorite = true
+        console.log(response.data.result)
+      }, (reject) => {
+        console.log(reject)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    cancelfavorite (event, imgId) {
+      var _this = this
+      this.$http.post('/cancelFavorite', {imgId: imgId}).then((response) => {
+        _this.isFavorite = false
         console.log(response.data.result)
       }, (reject) => {
         console.log(reject)
@@ -111,7 +126,7 @@ h2{
 	text-align: center;
 	margin-right: 20px;
 }
-.tool span i{
+.tool span i,.tool span a{
 	font-size: 24px;
 }
 .imgBoxWrap{
